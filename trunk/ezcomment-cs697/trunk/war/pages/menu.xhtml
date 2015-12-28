@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:clarity="http://clarity/facelets/debug"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+<div>
+	    <h:form prependId="false"> 
+        
+	  <a href="addtemp.faces" >Add Template</a> |
+	<h:commandLink value="View My Template" action="#{myTemplates.getMyTemplates}">
+	</h:commandLink> |
+	<h:commandLink value="Add CommentBox" action="#{myCBox.getMyTemplates}">
+	</h:commandLink> |
+	<h:commandLink value="View My CommentBoxes" action="#{myCBox.getMyCBS}">
+	</h:commandLink>
+	<br /> |
+	<h:commandLink value="Log Out" action="#{profile.logout}">
+	</h:commandLink>
+</h:form>
+  </div>
+  
+</ui:composition>
+  
+ 

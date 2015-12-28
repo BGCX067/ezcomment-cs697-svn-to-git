@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body >
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>	
+  <ui:include src="header.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+
+  <div>
+  <p:messages showDetail="true" />
+    <h2>Admin Users</h2>
+	<h:form id="vtemp"> 
+	
+    <p:dataTable var="obj" value="#{profile.allobj}" paginator="true" 
+		rows="10" dynamic="false or true">
+		 
+		<p:column filterBy="#{obj.text}" sortBy="#{obj.text}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Full Name" />
+			</f:facet>
+			<h:outputText value="#{obj.text}" />
+		</p:column>
+	
+		<p:column sortBy="#{obj.value}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="User Name / Email" />
+			</f:facet>
+			<h:outputText value="#{obj.value}" />
+		</p:column>
+		<p:column resizable="true">
+				<f:facet name="header">
+					<h:outputText value="UserId" />
+				</f:facet>
+				<h:outputText value="#{obj.id}" />
+		</p:column>
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Action" />
+			</f:facet>
+			<h:outputText rendered="#{obj.text == profile.user.fullName}" value="you" />
+			<h:commandLink rendered="#{obj.text != profile.user.fullName}" value="Make Non Admin" action="#{profile.makeUser}">
+						<f:setPropertyActionListener target="#{profile.obj}"
+							value="#{obj}" />
+					</h:commandLink> 
+		</p:column>
+	</p:dataTable>
+    
+    </h:form>
+  </div>
+ </td><td width="36"> <div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" /> 
+ </h:body> 
+ </html>
+ 

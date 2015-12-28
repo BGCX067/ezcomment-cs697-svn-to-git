@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body>
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>
+  <ui:include src="header.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+
+<p:messages showDetail="true" />
+   <h2>Create CommentBox</h2>
+    <script>
+		function chk(){
+			//alert(document.getElementById('combox:owner1').value+' - '+document.getElementById('ownerxxx').value);
+			document.getElementById('combox:owner1').value=document.getElementById('ownerxxx').value;
+		}
+	</script>  
+	<h:form id="combox"> 
+	<h:panelGrid id="grid" columns="2">
+		Site Url:
+		<h:inputText value="#{commentBox.site}" 
+				requiredMessage="Site Url is required" id="fname">
+				<h:message for="fname"></h:message>
+				</h:inputText>
+		Page Url :
+		<h:inputText value="#{commentBox.page}" 
+				requiredMessage="Page Url is required"></h:inputText>
+		<a href="addtemp.faces" >Add Template</a> 
+		<h:commandLink value="View My Templates" action="#{myTemplates.getMyTemplates}">
+		</h:commandLink>
+		</h:panelGrid>
+			Template :
+			
+			<select id="ownerxxx" onchange='chk()'> 
+			
+			<ui:repeat value="#{myCBox.mytemplates}" var="temp1">
+		  		<option value="#{temp1.id}">#{temp1.name} </option>
+		  </ui:repeat>
+			</select>
+			
+			<div style='display:none'>
+				<h:inputText value="#{commentBox.owner}" id='owner1'></h:inputText>
+			</div>
+		<br />
+		<h:commandButton value="Submit" onclick='chk()'  action="#{myCBox.create}"/>
+     <br />
+    #{myCBox.text}<br />
+    #{myCBox.code}
+    
+    </h:form>
+  </td><td width="36"><div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" />
+ </h:body> 
+ </html>
+ 

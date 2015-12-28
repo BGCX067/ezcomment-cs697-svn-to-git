@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:clarity="http://clarity/facelets/debug"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body onload='fix()'>
+  <h:outputScript library="js" name="jscolor.js" target="head"/>
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>	
+  <script>
+  function fix(){
+	try{  
+	var fc=document.getElementById("userreg:fcolor").value;
+	var bg=document.getElementById("userreg:bgcolor").value;
+	//alert('uu'+fc);
+	var div = document.getElementById("sample");
+	div.style.background="#"+bg+"";
+	div.style.color="#"+fc+"";
+	}catch(e){
+		//alert(e);
+	}
+  }
+  </script>
+  <ui:include src="header.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+
+<div>
+  <p:messages showDetail="true" />
+    <h2>Modify Template</h2>
+	<h:form id="userreg"> 
+	<h:inputHidden value="#{temp.template.id}" id="id" />
+	<h:panelGrid id="grid" columns="2">
+		Name : 
+		<h:inputText value="#{temp.template.name}" required="true"
+				requiredMessage="Name is required" id="name">
+		</h:inputText>
+		Description :
+		<h:inputText value="#{temp.template.description}" required="true"
+				requiredMessage="Description is required" id="desc">
+		</h:inputText>
+		Height :
+		<h:inputText value="#{temp.template.height}" required="true"
+				requiredMessage="Height is required" id="height">
+				</h:inputText>
+		Width :
+		<h:inputText value="#{temp.template.width}" required="true"
+				requiredMessage="Width is required" id="width">
+				</h:inputText>
+		Font Color: 
+		 <h:inputText class="color" value="#{temp.template.fontcolor}" required="true"
+				requiredMessage="Width is required" id="fcolor" onblur="fix()" >
+				</h:inputText>
+		Background Color:
+		<h:inputText class="color" value="#{temp.template.bgcolor}" required="true"
+				requiredMessage="Width is required" id="bgcolor" onblur="fix()">
+				</h:inputText>
+		<h:commandButton value="Modify"  action="#{temp.mods}" immediate="true" />
+		<div id="sample" style="height:50px;font-size: 2.0em;color:#ffffff;background:#000000;" >
+    	Sample Text
+    	</div>
+    </h:panelGrid> 
+    
+    
+    </h:form>
+  </div>
+  </td><td width="36"><div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" />
+ </h:body> 
+ </html>
+ 

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:clarity="http://clarity/facelets/debug"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+
+	<div>
+  <p:messages showDetail="true" />
+    <h2>Comments Since Your Last Login</h2>
+   
+	<h:form prependId="false"> 
+	
+    <p:dataTable var="cmt" value="#{myComments.comments}" paginator="true" 
+		rows="10" dynamic="false or true">
+		 
+		<p:column filterBy="#{cmt.date}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Date" />
+			</f:facet>
+			<h:outputText value="#{cmt.date}" />
+		</p:column>
+	
+		<p:column filterBy="#{cmt.author}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Author" />
+			</f:facet>
+			<h:outputText value="#{cmt.author}" />
+		</p:column>
+	
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Email" />
+			</f:facet>
+			<h:outputText value="#{cmt.email}" />
+		</p:column>
+		
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Comment" />
+			</f:facet>
+			<h:outputText value="#{cmt.content}" />
+		</p:column>
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Action" />
+			</f:facet>
+			
+					<h:commandLink value="Delete" action="#{myComments.dels}">
+						<f:setPropertyActionListener target="#{myComments.commentid}"
+							value="#{cmt.key.id}" />
+					</h:commandLink>
+		</p:column>
+	</p:dataTable>
+    
+    </h:form>
+  </div>
+</ui:composition>
+  
+ 

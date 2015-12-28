@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body >
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>	
+  <ui:include src="header.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+
+
+  <div>
+  <p:messages showDetail="true" />
+    <h2>View My CommentBoxes</h2>
+	<h:form prependId="false"> 
+	
+    <p:dataTable var="cb" value="#{myCBox.cbs}" paginator="true" 
+		rows="10" dynamic="false or true">
+		 
+		<p:column filterBy="#{cb.site}" sortBy="#{cb.site}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Site" />
+			</f:facet>
+			<h:outputText value="#{cb.site}" />
+		</p:column>
+	
+		<p:column filterBy="#{cb.page}" sortBy="#{cb.page}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Page" />
+			</f:facet>
+			<h:outputText value="#{cb.page}" />
+		</p:column>
+	
+		<p:column sortBy="#{cb.template}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Template" />
+				<h:outputText value="/Owner" />
+			</f:facet>
+			<h:outputText value="#{cb.template}" /> /
+			<h:outputText rendered="#{user.username != cb.owner}" value="#{cb.owner}" />
+			<h:outputText rendered="#{user.username == cb.owner}" value="you" />
+		</p:column>
+	
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Action" />
+			</f:facet>
+			<a href="mycomments.faces?mode=vcmt&amp;id=#{cb.id}">View Comments</a> <h:outputText value=" " />
+			<h:commandLink value="Modify" action="#{myCBox.dels}" rendered="#{user.username == cb.owner}" >
+						<f:setPropertyActionListener target="#{myCBox.combox}"
+							value="#{cb}" />
+					</h:commandLink> <a href="del.faces?mode=delcbx&amp;id=#{cb.id}">Delete</a>
+		</p:column>
+	</p:dataTable>
+    
+    </h:form>
+  </div>
+  </td><td width="36"><div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" />
+ </h:body> 
+ </html>
+ 

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body onload='chk()'>
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>
+  
+  <script>
+  function chk(){
+		if(document.getElementById('state1').value=='saved'){
+			//alert(document.getElementById('combox:owner1').value+' - '+document.getElementById('ownerxxx').value);
+			document.getElementById('name').value='';
+			document.getElementById('email').value='';
+			document.getElementById('comment').value='';
+			document.getElementById('state1').value='';
+	}
+  }	
+	</script> 
+		
+  <div style="#{myComments.style}" id="f1" >
+  <script>
+	if ('#{myComments.style}' == ' background:#null; color:#null; '){
+	  document.location="404.faces";
+	}
+  </script>
+  
+  <!-- <jsf:redirect url="/404.faces" rendered="#{myComments.style==null}"/> -->
+  
+  <p:messages showDetail="true" />
+	    <h:form prependId="false">
+	    Comments<br />
+	    #{myComments.text}
+	    <table width='99%'>
+	    
+        <ui:repeat value="#{myComments.comments}" var="cmt">
+          <div class="">
+          <tr><td align='left'>Author: <b>#{cmt.author}</b> </td><td align='right' nowrap='nowrap'>  Date: #{cmt.date}</td> </tr>
+          <tr><td colspan='2' style="text-align:justify;">#{cmt.content}
+          
+          <br />
+          </td></tr>
+            </div>
+        </ui:repeat>
+        </table>
+        <h:panelGrid id="grid" columns="2">
+		Name: <h:inputText id='name' size="30" value="#{comment.author}" required="true" requiredMessage="Name is required" ></h:inputText>
+		 Email: <h:inputText id='email' size="30" value="#{comment.email}"  />
+		 	
+		 Comment: <h:inputTextarea id='comment' rows="5" cols="30" required="true" value="#{comment.content}" requiredMessage="Comment is required"></h:inputTextarea>
+		<h:commandButton value="Comment" action="#{myComments.fetch}" render="f1" />
+	</h:panelGrid>
+	<h:inputHidden id="owner" value="#{myComments.owner}" />
+      </h:form>
+      <b> powered by <a href='http://ezcomment.appspot.com' target='blank'>ezComment</a></b>
+  </div>
+ <div style='display:none'>
+				<h:inputText value="#{myComments.state}" id='state1'></h:inputText>
+</div>
+ </h:body> 
+ </html>
+ 

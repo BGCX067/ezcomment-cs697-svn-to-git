@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:clarity="http://clarity/facelets/debug"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body style="margin-top:0px;">
+ <h:outputStylesheet library="css" name="styles.css" target="body"/>
+ <ui:include src="header1.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+	<p:messages showDetail="true" />
+	<table><tr valign="top"><td width="400px">
+	<h2>About</h2>
+<div style="text-align:justify;line-height:20px">
+ezComment was developed by Chinua Iloabachie, a graduate student at UMASS, Boston in partial
+fulfillment of the requirements of the course CS697- Distributed and Concurrent Systems.
+    This project was supervised by Dr. Junichi Suzuki.
+</div>	
+
+	</td><td width="40px"></td><td>
+	  <h2>Register</h2>
+	<ui:include src="reg.xhtml" />
+	</td></tr></table>
+ </td><td width="36" ><div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" />
+ </h:body> 
+ </html>
+ 

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body >
+  <h:outputScript library="js" name="jscolor.js" target="head"/>
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>	
+  <ui:include src="header.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+
+
+  <div>
+  <p:messages showDetail="true" />
+    <h2>View Template</h2>
+	<h:form id="vtemp"> 
+	
+    <p:dataTable var="temp2" value="#{myTemplates.templates}" paginator="true" 
+		rows="10" dynamic="false or true">
+		 
+		<p:column filterBy="#{temp2.name}" sortBy="#{temp2.name}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Name" />
+			</f:facet>
+			<h:outputText value="#{temp2.name}" />
+		</p:column>
+	
+		<p:column sortBy="#{temp2.description}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Description" />
+			</f:facet>
+			<h:outputText value="#{temp2.description}" />
+		</p:column>
+		<p:column sortBy="#{temp2.owner}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Owner" />
+			</f:facet>
+			<h:outputText rendered="#{user.username != temp2.owner}" value="#{temp2.owner}" />
+			<h:outputText rendered="#{user.username == temp2.owner}" value="you" />
+		</p:column>
+		<p:column sortBy="#{temp2.height}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Height" />
+			</f:facet>
+			<h:outputText value="#{temp2.height}" />
+		</p:column>
+	
+		<p:column sortBy="#{temp2.width}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Width" />
+			</f:facet>
+			<h:outputText value="#{temp2.width}" />
+		</p:column>
+		<p:column sortBy="#{temp2.fontcolor}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Font Color" />
+			</f:facet>
+			<h:outputText value="#{temp2.fontcolor}" />
+		</p:column>
+	
+		<p:column sortBy="#{temp2.bgcolor}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Background" />
+			</f:facet>
+			<h:outputText value="#{temp2.bgcolor}" />
+		</p:column>
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Action" />
+			</f:facet>
+			<a href="modetemp.faces?mode=mod&amp;id=#{temp2.id}"><h:outputText rendered="#{user.username == temp2.owner}" value="Modify" /></a>
+			<a href="del.faces?mode=deltemp&amp;id=#{temp2.id}">Delete</a>
+		</p:column>
+	</p:dataTable>
+    
+    </h:form>
+  </div>
+  </td><td width="36"><div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" />
+ </h:body> 
+ </html>
+ 

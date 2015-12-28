@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:clarity="http://clarity/facelets/debug"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for the login page. -->
+  <h:body onload='fix()'>
+  <h:outputScript library="js" name="jscolor.js" target="head"/>
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>	
+  <script>
+  function fix(){
+	try{  
+	var fc=document.getElementById("userreg:fcolor").value;
+	var bg=document.getElementById("userreg:bgcolor").value;
+	//alert('uu'+document.getElementById("userreg:wunit").value);
+	var div = document.getElementById("sample");
+	div.style.background="#"+bg+"";
+	div.style.color="#"+fc+"";
+	if(fc==bg){document.getElementById("userreg:bt").disabled=true;}
+	else{document.getElementById("userreg:bt").disabled=false;}
+	}catch(e){
+		//alert('Error='+e);
+	}
+  }
+  </script>
+  <ui:include src="header.xhtml" />
+  <div >
+  <center>
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr height="380px" valign='top'><td width="36"> </td><td width="830">
+
+<div>
+  
+   <p:messages showDetail="true" />
+    <h2>Create Template</h2>
+	<h:form id="userreg"> 
+	<table><tr><td>
+		Name :</td><td>
+		<h:inputText value="#{template.name}" required="true"
+				requiredMessage="Name is required" id="fname">
+				</h:inputText>
+				</td><td></td></tr>
+		<tr><td>Description :</td><td>
+		<h:inputText value="#{template.description}"  required="true"
+				requiredMessage="Description is required" id="desc">
+		</h:inputText></td><td></td></tr>
+		<tr><td>Height :</td><td>
+		<h:inputText value="#{template.height}" size="4" required="true"
+				requiredMessage="Height is required" id="height">
+				</h:inputText>
+				<h:selectOneMenu id="hunit" value="#{template.hunit}" >
+				<f:selectItem itemValue="%" itemLabel=" %" />			
+				<f:selectItem itemValue="px" itemLabel="px" />     
+				</h:selectOneMenu>
+				
+				<h:outputLabel style="font-size:8px;">Use values like 100% or 400px for best results</h:outputLabel>
+				</td><td></td></tr>
+		<tr><td>Width :</td><td>
+		<h:inputText value="#{template.width}" size="4" required="true"
+				requiredMessage="Width is required" id="width">
+				</h:inputText>
+				<h:selectOneMenu id="wunit" value="#{template.wunit}" >
+				<f:selectItem itemValue="%" itemLabel=" %" />			
+				<f:selectItem itemValue="px" itemLabel="px"/>     
+				</h:selectOneMenu>
+				<h:outputLabel style="font-size:8px;">Use values like 100% or 400px for best results</h:outputLabel>
+				</td><td></td></tr>
+		<tr><td>Font Color: </td><td>
+		 <h:inputText id="fcolor" class="color" value="#{template.fontcolor}" required="true" 
+				requiredMessage="Width is required" onblur="fix()" >
+				</h:inputText><h:outputLabel style="font-size:8px;">Should not be the same as background color</h:outputLabel><h:outputLabel></h:outputLabel>
+				</td><td></td></tr>
+		<tr><td>Background Color:</td><td>
+		<h:inputText id="bgcolor" class="color" value="#{template.bgcolor}" required="true"
+				requiredMessage="Width is required" onblur="fix()">
+				</h:inputText><h:outputLabel style="font-size:8px;">Should not be the same as font color</h:outputLabel><h:outputLabel></h:outputLabel>
+				</td><td></td></tr>
+		<tr><td><h:commandButton value="Submit" id="bt" action="#{myTemplates.create}"/></td><td>
+		
+		<div id="sample" style="height:50px;font-size: 2.0em;color:#ffffff;background:#000000;" >
+    	Sample Text
+    	</div></td><td>
+    </td></tr></table>
+    
+    
+    </h:form>
+  </div>
+  </td><td width="36"> <div id="samplexxxx"></div> </td></tr></table>
+  </center>
+  </div>
+  <ui:include src="footer.xhtml" />
+ </h:body> 
+ </html>
+ 

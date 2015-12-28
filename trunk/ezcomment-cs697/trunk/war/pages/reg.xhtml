@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:clarity="http://clarity/facelets/debug"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+
+	<h:form prependId="false"> 
+	<h:panelGrid id="grid" columns="2">
+		Full Name :
+		<h:inputText value="#{user.fullName}" required="true"
+				requiredMessage="Full Name is required" id="fname">
+				</h:inputText>
+		User Name :
+		<h:inputText value="#{user.username}" required="true"
+			validator="#{profile.validateUserName}" 
+				requiredMessage="User Name is required"></h:inputText>
+		Password :
+		<h:inputSecret value="#{user.password}" required="true"
+				requiredMessage="Password is required"></h:inputSecret>	
+		Email :
+		<h:inputText value="#{user.email}" required="true"
+			validator="#{profile.validateEmail}" 
+				requiredMessage="Email is required"></h:inputText>
+		
+		<h:commandButton value="Submit"  action="#{profile.register}"/>
+    </h:panelGrid> 
+    
+    </h:form>
+  
+</ui:composition>
+  
+ 

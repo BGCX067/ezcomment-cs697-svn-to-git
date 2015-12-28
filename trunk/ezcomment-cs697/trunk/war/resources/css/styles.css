@@ -1,0 +1,247 @@
+div,span { border:0px solid black; padding:1px; }
+*.tabled { display:table; border-collapse:collapse;  text-align: left;  }
+*.tabledl { display:table; border-collapse:collapse;  text-align: left; width: auto;  }
+*.rowed { display:table-row; }
+*.rowedg { display:table-row;  background: #dedede; }
+*.celled { display:table-cell; }
+*.celleda { display:table-cell;width:200px; text-align: right;}
+
+body{
+	font-size: 12px;
+  	font-family: verdana;
+  	margin-top:0px;
+	}
+#heading {
+  padding: 20px;
+  margin-bottom: 10px;
+  background: #dddddd;
+  border: 1px solid #cccccc;
+  font-size: 1.4em;
+  font-style: italic;
+  font-family: Palatino;
+  right: 20px;
+  text-align: center;
+}
+
+div.planetImage {
+  margin-top: 10px;
+  text-align: center;
+} 
+
+#promptTop {
+  font-size: 1.15em;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  font-family: Palatino;
+  font-style: italic;
+} 
+
+.explanation {
+  padding: 20px;
+  font-family: Palatino;
+  font-style: italic;
+  color: blue;
+}
+img {
+   border:0px solid #ffffff;
+}
+.cline
+{
+   margin: 0 auto;
+   width: 2px;
+   height: 100%;
+   color: black;
+   background: #0000FF;
+}
+
+#prompt {
+  font-size: 1.15em; 
+  margin-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: Palatino;
+}
+
+#welcomeGreeting {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+#welcomeImage {
+  margin-top: 10px;
+  text-align: center; 
+}
+
+.menuLeft3 {
+  border: thin solid lightGray;
+  position: absolute;
+  left: 10;
+  height: 86%;
+  width: 200px;
+  top-margin:100px;
+  background: #eeeeee;
+}
+.menuLeft2 {
+  /*border: thin solid lightGray;*/
+  margin-top:100px;
+  position: absolute;
+  
+}
+.menuLeft2b {
+  /*border: thin solid lightGray;*/
+  margin-top:250px;
+  position: absolute;
+  
+}
+.menuLeft2b {
+  /*border: thin solid lightGray;*/
+  margin-top:450px;
+  position: absolute;
+  
+}
+.widgets{
+	border: thin solid lightGray;
+    background: #eeeeee;
+    width:935px;
+    text-align: left;
+    align:left;
+	}
+.menuLeftxx
+ {
+  /*border: thin solid lightGray;*/
+  position: absolute;
+  left: 10;
+  height: 86%;
+  width: 240px;
+  top-margin:100px;
+  
+}
+.menuLeft {
+  border: thin solid lightGray;
+  position: absolute;
+  left: 10;
+  height: 86%;
+  width: 280px;
+  background: #eeeeee;
+}
+/*
+.menuAndContent
+ {
+  border: thin solid lightGray;
+  margin-top:90px;
+  position: absolute;
+  height: 80%;
+  width: 240px;
+  background: #eeeeee;
+}
+*/
+#menuRight {
+  border: thin solid lightGray;
+  background: #efefef;
+  position:absolute;
+  top: 85px;
+  right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.content {
+  margin-top: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border: thin solid lightGray;
+  background: #fefeef;	
+  position:absolute;
+  left: 300px; 
+  right: 125px;
+  top: 155px;
+  width:610px;
+}
+.contentxxx {
+  margin-top: 1px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 20px;
+  //border: thin solid lightGray;
+  //background: #fefeef;	
+  position:absolute;
+  left: 250px; 
+  right: 65px;
+  top: 1px;
+  margin:1px;
+  height: 86%; 
+  width: 600px;
+}
+.datalist{
+	margin-top: 10px;margin-right:10px; 
+	padding: 10px; float: left;border:thin solid lightGray;
+	//width:50%;
+/*	margin-top: 1px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 20px;
+  border: thin solid lightGray;
+  background: #fefeef;	
+  position:absolute;
+  left: 0px; 
+  right: 0px;
+  top: 0px;
+  margin:0px;
+  height: 470px;
+  width: 600px;
+  */
+	}
+
+#menuAndContent {
+  width: 100%;
+  height: 100%;
+}
+
+.error {
+  color: red;
+}
+
+.icon {
+  margin: 10px;
+  border: none;
+}
+.placeFooter {
+	position:absolute;
+	margin-top: 53%;//34%;
+	//margin-bottom: 81%;
+	margin-right:10px; 
+	padding: 10px; 
+	float: left;
+	border:thin solid lightGray;
+	width:925px;
+	text-align:center;
+	font-size:10px;
+	//font-family:verdana;
+	height:15px;
+}
+.placeHeading {
+	padding: 20px;
+	  margin-bottom: 10px;
+	  background: #dddddd;
+	  border: 1px solid #cccccc;
+	  font-size: 1.4em;
+	  font-style: italic;
+	  font-family: Palatino;
+	  right: 20px;
+	  text-align: center;
+	  width:900px;
+	  height:50px;
+	  font-size:34px;
+	/*
+	margin-top: 10px;margin-right:10px; padding: 10px; float: left;border:thin solid lightGray;
+	width:80%;
+	background: #dddddd;
+	text-align:center;
+	font-size:24px;
+	height:50px;
+	*/
+}
+
+.placeMap {
+	border:thin solid lightGray;margin: 5px;padding: 5px;
+}	

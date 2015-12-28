@@ -1,0 +1,19 @@
+<!-- Indices written at Wed, 10 Apr 2010 04:22:36 UTC -->
+
+<datastore-indexes>
+
+    <datastore-index kind="Comment" ancestor="false" source="auto">
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+    <datastore-index kind="Bean" ancestor="false" source="auto">
+        <property name="text" direction="desc"/>
+    </datastore-index>
+    <datastore-index kind="User" ancestor="false" source="auto">
+        <property name="username" direction="desc"/>
+    </datastore-index>
+    <datastore-index kind="Template" ancestor="false" source="auto">
+        <property name="name" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>
+

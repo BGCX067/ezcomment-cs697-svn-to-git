@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+  <h:head>  
+    <title>ezComment</title>
+  </h:head>
+  
+  <!-- The header for NOT IN USE the login page. -->
+  <h:body >
+  <h:outputStylesheet library="css" name="styles.css" target="body"/>	
+  <ui:include src="menu.xhtml" />
+  <div>
+  <h:messages layout="table"></h:messages>
+  <div style="color:red"> #{myTemplate.text}<br /> </div>
+    <h2>View CommentBoxes NOT IN USE</h2>
+	<h:form id="vtemp"> 
+	
+    <p:dataTable var="temp" value="#{myTemplates.templates}" paginator="true" 
+		rows="10" dynamic="false or true">
+		 
+		<p:column filterBy="#{temp.name}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Name" />
+			</f:facet>
+			<h:outputText value="#{temp.name}" />
+		</p:column>
+	
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Description" />
+			</f:facet>
+			<h:outputText value="#{temp.description}" />
+		</p:column>
+	
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Height" />
+			</f:facet>
+			<h:outputText value="#{temp.height}" />
+		</p:column>
+	
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Width" />
+			</f:facet>
+			<h:outputText value="#{temp.width}" />
+		</p:column>
+		<p:column filterBy="#{temp.fontcolor}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Font Color" />
+			</f:facet>
+			<h:outputText value="#{temp.fontcolor}" />
+		</p:column>
+	
+		<p:column filterBy="#{temp.bgcolor}" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Background" />
+			</f:facet>
+			<h:outputText value="#{temp.bgcolor}" />
+		</p:column>
+		<p:column filterBy="" resizable="true">
+			<f:facet name="header">
+				<h:outputText value="Action" />
+			</f:facet>
+			<h:commandLink value="Modify" action="#{myTemplates.getaTemplate}">
+						<f:setPropertyActionListener target="#{myTemplates.template}"
+							value="#{temp}" />
+					</h:commandLink> |
+					<h:commandLink value="Delete" action="#{myTemplates.dels}">
+						<f:setPropertyActionListener target="#{myTemplates.template}"
+							value="#{temp}" />
+					</h:commandLink>
+		</p:column>
+	</p:dataTable>
+    
+    </h:form>
+  </div>
+  
+ </h:body> 
+ </html>
+ 
